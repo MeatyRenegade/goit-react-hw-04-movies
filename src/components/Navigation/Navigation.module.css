@@ -1,0 +1,23 @@
+.List {
+  display: flex;
+  padding: 20px 0 20px 30px;
+  list-style: none;
+  border-bottom: 1px solid rgb(129, 129, 129);
+  box-shadow: 0 3px 5px #717d8085;
+}
+
+.NavLink {
+  margin-right: 20px;
+  font-size: 25px;
+  font-weight: 600;
+  color: currentColor;
+  text-decoration: none;
+}
+
+.NavLink:hover {
+  text-decoration: underline;
+}
+
+.NavLink__active {
+  color: palevioletred;
+}
