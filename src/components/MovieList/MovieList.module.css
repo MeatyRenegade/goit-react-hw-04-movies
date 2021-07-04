@@ -3,10 +3,19 @@
 }
 
 .list {
-  /*  */
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .item {
-  margin-bottom: 10px;
+  margin: 0 10px 40px 0;
   font-weight: 600;
+  width: 200px;
+  height: 300px;
+}
+
+.item:hover {
+  color: palevioletred;
+  text-decoration: underline;
+  box-shadow: 0 0 10px #000;
 }

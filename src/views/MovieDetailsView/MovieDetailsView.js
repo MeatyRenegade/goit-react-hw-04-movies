@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import { getMovieById } from '../../service/apiService';
 import MovieCard from '../../components/MovieCard';
+import MovieAdditionalInfo from '../../components/MovieAdditionalInfo';
 import Loader from '../../components/Loader';
 
 import styles from './MovieDetailsView.module.css';
@@ -68,6 +70,12 @@ class MovieDetailsView extends Component {
           genres={genres}
           date={release_date}
         />
+
+        <MovieAdditionalInfo />
+        <Switch>
+          {/* <Route exact path="" render={() => <Cast movieId={id} />} /> */}
+          {/* <Route exact path="" render={() => <Reviews movieId={id} />} /> */}
+        </Switch>
 
         {isLoading && <Loader />}
       </>

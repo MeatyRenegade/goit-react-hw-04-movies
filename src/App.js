@@ -1,7 +1,7 @@
 import React, { Component, lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import NotFoundView from './views/NotFoundView';
+import NotFoundView from './views/NotFoundView/NotFoundView';
 import Loader from './components/Loader';
 import Navigation from './components/Navigation';
 

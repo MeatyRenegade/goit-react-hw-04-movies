@@ -34,7 +34,7 @@ class MovieCard extends Component {
 
     return (
       <article className={styles.article}>
-        <img src={getPosterPic(poster)} alt={title} />
+        <img className={styles.image} src={getPosterPic(poster)} alt={title} />
         <div className={styles.container}>
           <section className={styles.section}>
             <h1 className={styles.header}>

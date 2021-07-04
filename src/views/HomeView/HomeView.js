@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { getTrendMovies } from '../../service/apiService';
+import { getTrendMovies, getMovieById } from '../../service/apiService';
 import MovieList from '../../components/MovieList';
 import Loader from '../../components/Loader';
 
