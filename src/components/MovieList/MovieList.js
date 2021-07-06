@@ -11,8 +11,6 @@ class MovieList extends Component {
   render() {
     const { movies } = this.props;
 
-    movies.map(movie => console.log(movie));
-
     return (
       <section className={styles.section}>
         <ul className={styles.list}>

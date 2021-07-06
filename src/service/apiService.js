@@ -6,11 +6,8 @@ const POSTER_PATH = 'https://image.tmdb.org/t/p/w500';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.headers.common['Authorization'] = `Bearer ${API_KEY_V4_AUTH}`;
-axios.defaults.headers.common[
-  'Content-Type'
-] = `application/json;charset=utf-8`;
 
-export function getPosterPic(poster, template = 'poster.jpg') {
+export function getPosterPic(poster, template = 'avatar.jpg') {
   return poster
     ? `${POSTER_PATH}${poster}`
     : process.env.PUBLIC_URL + `/${template}`;
@@ -23,7 +20,7 @@ export async function getTrendMovies() {
     } = await axios.get('/trending/movie/day');
     return data;
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 }
 
@@ -32,6 +29,28 @@ export async function getMovieById(movieId) {
     const { data } = await axios.get(`/movie/${movieId}`);
     return data;
   } catch (error) {
-    throw error;
+    console.log(error);
+  }
+}
+
+export async function getMovieCastById(movieId) {
+  try {
+    const {
+      data: { cast: data },
+    } = await axios.get(`/movie/${movieId}/credits`);
+    return data || [];
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getMovieReviewsById(movieId) {
+  try {
+    const {
+      data: { results: data },
+    } = await axios.get(`/movie/${movieId}/reviews`);
+    return data || [];
+  } catch (error) {
+    console.log(error);
   }
 }

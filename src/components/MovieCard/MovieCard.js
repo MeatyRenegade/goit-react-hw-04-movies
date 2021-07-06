@@ -29,8 +29,6 @@ class MovieCard extends Component {
 
   render() {
     const { poster, title, popularity, overview, genres, date } = this.props;
-    const getDate = new Date(date);
-    const getFullYear = getDate.getFullYear();
 
     return (
       <article className={styles.article}>
@@ -38,7 +36,7 @@ class MovieCard extends Component {
         <div className={styles.container}>
           <section className={styles.section}>
             <h1 className={styles.header}>
-              {title}({getFullYear})
+              {title}({Number.parseInt(date)})
             </h1>
             <p className={styles.text}>User Score: {popularity.toFixed()}%</p>
           </section>

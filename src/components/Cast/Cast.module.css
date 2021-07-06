@@ -1,0 +1,11 @@
+.profile_picture {
+  width: 200px;
+  height: 300px;
+}
+
+.section {
+  padding: 20px;
+  box-shadow: 0 0 5px #717d8085;
+  margin: 10px;
+  padding: 10px;
+}

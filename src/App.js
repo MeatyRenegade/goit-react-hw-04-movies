@@ -19,7 +19,7 @@ class App extends Component {
   };
 
   render() {
-    const { isLoading } = this.state;
+    // const { isLoading } = this.state;
 
     return (
       <div className={styles.App}>
@@ -34,7 +34,7 @@ class App extends Component {
           </Switch>
         </Suspense>
 
-        {isLoading && <Loader />}
+        {/* {isLoading && <Loader />} */}
       </div>
     );
   }

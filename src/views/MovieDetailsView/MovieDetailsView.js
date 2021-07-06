@@ -4,6 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import { getMovieById } from '../../service/apiService';
 import MovieCard from '../../components/MovieCard';
 import MovieAdditionalInfo from '../../components/MovieAdditionalInfo';
+import Cast from '../../components/Cast';
+import Reviews from '../../components/Reviews';
 import Loader from '../../components/Loader';
 
 import styles from './MovieDetailsView.module.css';
@@ -39,7 +41,6 @@ class MovieDetailsView extends Component {
   render() {
     const {
       movies: {
-        id,
         poster_path: poster,
         title,
         popularity,
@@ -49,6 +50,9 @@ class MovieDetailsView extends Component {
       },
       isLoading,
     } = this.state;
+
+    const movieId = this.props.match.params.movieId;
+    const url = this.props.match.url;
 
     return (
       <>
@@ -71,10 +75,19 @@ class MovieDetailsView extends Component {
           date={release_date}
         />
 
-        <MovieAdditionalInfo />
+        <MovieAdditionalInfo url={url} />
+
         <Switch>
-          {/* <Route exact path="" render={() => <Cast movieId={id} />} /> */}
-          {/* <Route exact path="" render={() => <Reviews movieId={id} />} /> */}
+          <Route
+            exact
+            path={`${url}/cast`}
+            render={() => <Cast movieId={movieId} />}
+          />
+          <Route
+            exact
+            path={`${url}/reviews`}
+            render={() => <Reviews movieId={movieId} />}
+          />
         </Switch>
 
         {isLoading && <Loader />}
