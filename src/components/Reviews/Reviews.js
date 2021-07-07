@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { getMovieReviewsById } from '../../service/apiService';
+import Loader from '../Loader';
 import styles from './Reviews.module.css';
 
 class Reviews extends Component {
   state = {
     reviews: [],
+    isLoading: false,
+  };
+
+  static propTypes = {
+    movieId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
   };
 
   async componentDidMount() {
@@ -21,24 +30,29 @@ class Reviews extends Component {
   }
 
   render() {
-    const { reviews } = this.state;
+    const { reviews, isLoading } = this.state;
 
-    return reviews.length > 0 ? (
+    return (
       <section className={styles.section}>
         <ul className={styles.list}>
-          {reviews.map(({ id, author, content }) => {
-            return (
-              <li className={styles.item} key={id}>
-                <h4 className={styles.author}>Author: {author}</h4>
-                <p>{content}</p>
-              </li>
-            );
-          })}
+          {reviews.length > 0 ? (
+            reviews.map(({ id, author, content }) => {
+              return (
+                <li className={styles.item} key={id}>
+                  <h4 className={styles.author}>Author: {author}</h4>
+                  <p>{content}</p>
+                </li>
+              );
+            })
+          ) : (
+            <li className={styles.section}>
+              <p className={styles.text}>
+                We don't have reviews for this movie.
+              </p>
+            </li>
+          )}
         </ul>
-      </section>
-    ) : (
-      <section className={styles.section}>
-        <p className={styles.text}>We don't have reviews for this movie.</p>
+        {isLoading && <Loader />}
       </section>
     );
   }

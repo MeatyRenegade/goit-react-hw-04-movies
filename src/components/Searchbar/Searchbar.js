@@ -1,15 +1,13 @@
-import { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Searchbar.module.css';
 
-class Searchbar extends Component {
-  static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-  };
-
+class Searchbar extends PureComponent {
   state = {
     query: '',
   };
+
+  static propTypes = { onSubmit: PropTypes.func };
 
   handleChange = e => {
     const { value } = e.currentTarget;
@@ -28,6 +26,8 @@ class Searchbar extends Component {
   };
 
   render() {
+    const { query } = this.state;
+
     return (
       <header className={styles.SearchBar}>
         <form className={styles.SearchForm} onSubmit={this.handleSubmit}>
@@ -37,10 +37,9 @@ class Searchbar extends Component {
             autoComplete="off"
             autoFocus
             placeholder="Search for a movie....."
-            value={this.state.query}
+            value={query}
             onChange={this.handleChange}
           />
-
           <button type="submit" className={styles.SearchForm__button}>
             <span className={styles.SearchForm__button_label}>Search</span>
           </button>

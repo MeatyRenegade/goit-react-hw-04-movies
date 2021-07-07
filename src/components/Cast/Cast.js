@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { getPosterPic, getMovieCastById } from '../../service/apiService';
+import Loader from '../Loader';
+
 import styles from './Cast.module.css';
 
 class Cast extends Component {
   state = {
     casts: [],
+    isLoading: false,
+  };
+
+  static propTypes = {
+    movieId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
   };
 
   async componentDidMount() {
@@ -21,7 +31,7 @@ class Cast extends Component {
   }
 
   render() {
-    const { casts } = this.state;
+    const { casts, isLoading } = this.state;
 
     return (
       <section className={styles.section}>
@@ -40,6 +50,7 @@ class Cast extends Component {
             );
           })}
         </ul>
+        {isLoading && <Loader />}
       </section>
     );
   }

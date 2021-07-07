@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import queryString from 'query-string';
 import Searchbar from '../../components/Searchbar';
 import MovieList from '../../components/MovieList';
 import Loader from '../../components/Loader';
 import { searchMovies } from '../../service/apiService';
 
-class MoviesView extends Component {
+class MoviesView extends PureComponent {
   state = {
     movies: [],
     searchQuery: '',

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { getPosterPic } from '../../service/apiService';
 import routes from '../../routes';
@@ -8,6 +9,17 @@ import styles from './MovieList.module.css';
 
 class MovieList extends Component {
   state = {};
+
+  static propTypes = {
+    movies: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+          .isRequired,
+        title: PropTypes.string.isRequired,
+        poster_path: PropTypes.string.isRequired,
+      }),
+    ),
+  };
 
   render() {
     const { movies, location } = this.props;

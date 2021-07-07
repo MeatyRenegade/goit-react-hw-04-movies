@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { getMovieById } from '../../service/apiService';
 import MovieCard from '../../components/MovieCard';
@@ -17,14 +18,20 @@ class MovieDetailsView extends Component {
     isLoading: false,
   };
 
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        movieId: PropTypes.string.isRequired,
+      }),
+    }),
+  };
+
   async componentDidMount() {
     const movieId = this.props.match.params.movieId;
 
     try {
       this.setState({ isLoading: true });
-      this.setState({
-        movies: await getMovieById(movieId),
-      });
+      this.setState({ movies: await getMovieById(movieId) });
     } catch (error) {
       console.log(error);
     } finally {

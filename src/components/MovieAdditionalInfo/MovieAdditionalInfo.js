@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 
+import routes from '../../routes';
+
 import styles from './MovieAdditionalInfo.module.css';
 
 class MovieAdditionalInfo extends Component {
@@ -18,7 +20,7 @@ class MovieAdditionalInfo extends Component {
               className={styles.NavLink}
               activeClassName={styles.NavLink__active}
               to={{
-                pathname: `${url}/cast`,
+                pathname: `${url}${routes.cast}`,
                 state: { from: location },
               }}
             >
@@ -30,7 +32,7 @@ class MovieAdditionalInfo extends Component {
               className={styles.NavLink}
               activeClassName={styles.NavLink__active}
               to={{
-                pathname: `${url}/reviews`,
+                pathname: `${url}${routes.reviews}`,
                 state: { from: location },
               }}
             >

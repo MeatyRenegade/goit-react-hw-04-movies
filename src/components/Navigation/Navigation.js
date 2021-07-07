@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import routes from '../../routes';
 
 import styles from './Navigation.module.css';
 
@@ -11,7 +12,7 @@ class Navigation extends Component {
           <li>
             <NavLink
               exact
-              to="/"
+              to={routes.home}
               className={styles.NavLink}
               activeClassName={styles.NavLink__active}
             >
@@ -20,7 +21,7 @@ class Navigation extends Component {
           </li>
           <li>
             <NavLink
-              to="/movies"
+              to={routes.movies}
               className={styles.NavLink}
               activeClassName={styles.NavLink__active}
             >

@@ -16,7 +16,7 @@ class MovieCard extends Component {
   static propTypes = {
     poster: PropTypes.string || PropTypes.oneOf([null]),
     title: PropTypes.string,
-    popularity: PropTypes.number,
+    vote_average: PropTypes.number,
     overview: PropTypes.string,
     genres: PropTypes.arrayOf(
       PropTypes.shape({
