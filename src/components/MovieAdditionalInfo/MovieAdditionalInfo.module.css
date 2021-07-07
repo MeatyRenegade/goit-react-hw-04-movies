@@ -2,4 +2,51 @@
   margin: 10px;
   padding: 20px;
   box-shadow: 0 0 5px #717d8085;
+  background-color: rgb(3, 37, 65);
+  border-radius: 10px;
+}
+
+.container h3 {
+  width: 225px;
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    rgba(30, 213, 170, 0.295) 0%,
+    rgba(1, 179, 228, 0.308) 100%
+  );
+  color: white;
+}
+
+.list {
+  text-align: center;
+}
+
+.item {
+  width: 100px;
+  margin-bottom: 10px;
+
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    rgba(30, 213, 170, 0.295) 0%,
+    rgba(1, 179, 228, 0.308) 100%
+  );
+}
+
+.NavLink {
+  margin-right: 20px;
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.NavLink:hover {
+  text-decoration: underline;
+}
+
+.NavLink__active {
+  color: palevioletred;
 }

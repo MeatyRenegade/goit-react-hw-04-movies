@@ -4,13 +4,14 @@
   list-style: none;
   border-bottom: 1px solid rgb(129, 129, 129);
   box-shadow: 0 3px 5px #717d8085;
+  background-color: rgb(3, 37, 65);
 }
 
 .NavLink {
   margin-right: 20px;
   font-size: 25px;
   font-weight: 600;
-  color: currentColor;
+  color: white;
   text-decoration: none;
 }
 

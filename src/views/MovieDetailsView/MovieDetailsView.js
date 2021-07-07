@@ -7,6 +7,7 @@ import MovieAdditionalInfo from '../../components/MovieAdditionalInfo';
 import Cast from '../../components/Cast';
 import Reviews from '../../components/Reviews';
 import Loader from '../../components/Loader';
+import routes from '../../routes';
 
 import styles from './MovieDetailsView.module.css';
 
@@ -21,7 +22,9 @@ class MovieDetailsView extends Component {
 
     try {
       this.setState({ isLoading: true });
-      this.setState({ movies: await getMovieById(movieId) });
+      this.setState({
+        movies: await getMovieById(movieId),
+      });
     } catch (error) {
       console.log(error);
     } finally {
@@ -29,13 +32,19 @@ class MovieDetailsView extends Component {
     }
   }
 
-  backToHomePage = () => {
-    const { location, history } = this.props;
+  handleGoBack = () => {
+    const { state } = this.props.location;
+    const { search } = this.props.location;
 
-    if (location.state && location.state.from) {
-      return history.push(location.state.from);
+    if (state) {
+      this.props.history.push(state.from);
+      return;
     }
-    history.push('/');
+
+    this.props.history.push({
+      pathname: `${routes.movies}`,
+      search: `query=${search}`,
+    });
   };
 
   render() {
@@ -43,7 +52,7 @@ class MovieDetailsView extends Component {
       movies: {
         poster_path: poster,
         title,
-        popularity,
+        vote_average,
         overview,
         genres,
         release_date,
@@ -60,7 +69,7 @@ class MovieDetailsView extends Component {
           <button
             className={styles.button}
             type="button"
-            onClick={this.backToHomePage}
+            onClick={this.handleGoBack}
           >
             &#8592; Go back
           </button>
@@ -69,7 +78,7 @@ class MovieDetailsView extends Component {
         <MovieCard
           poster={poster}
           title={title}
-          popularity={popularity}
+          vote_average={vote_average}
           overview={overview}
           genres={genres}
           date={release_date}

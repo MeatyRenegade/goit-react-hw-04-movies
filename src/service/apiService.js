@@ -24,6 +24,17 @@ export async function getTrendMovies() {
   }
 }
 
+export async function searchMovies(query) {
+  try {
+    const {
+      data: { results: data },
+    } = await axios.get(`/search/movie?query=${query}`);
+    return data || [];
+  } catch (error) {
+    throw error;
+  }
+}
+
 export async function getMovieById(movieId) {
   try {
     const { data } = await axios.get(`/movie/${movieId}`);

@@ -1,9 +1,9 @@
 import React, { Component, lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-import NotFoundView from './views/NotFoundView/NotFoundView';
 import Loader from './components/Loader';
 import Navigation from './components/Navigation';
+import routes from './routes';
 
 import styles from './App.module.css';
 
@@ -14,27 +14,20 @@ const MovieDetailsView = lazy(() =>
 );
 
 class App extends Component {
-  state = {
-    isLoading: false,
-  };
+  state = {};
 
   render() {
-    // const { isLoading } = this.state;
-
     return (
       <div className={styles.App}>
         <Navigation />
-
         <Suspense fallback={<Loader />}>
           <Switch>
-            <Route exact path="/" component={HomeView} />
-            <Route exact path="/movies" component={MoviesView} />
-            <Route path="/movies/:movieId" component={MovieDetailsView} />
-            <Route component={NotFoundView} />
+            <Route exact path={routes.home} component={HomeView} />
+            <Route exact path={routes.movies} component={MoviesView} />
+            <Route path={routes.movieDetails} component={MovieDetailsView} />
+            <Redirect to={routes.home} />
           </Switch>
         </Suspense>
-
-        {/* {isLoading && <Loader />} */}
       </div>
     );
   }

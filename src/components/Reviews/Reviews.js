@@ -37,7 +37,9 @@ class Reviews extends Component {
         </ul>
       </section>
     ) : (
-      <h2>Sorry there is no reviews </h2>
+      <section className={styles.section}>
+        <p className={styles.text}>We don't have reviews for this movie.</p>
+      </section>
     );
   }
 }

@@ -28,7 +28,7 @@ class Cast extends Component {
         <ul className={styles.list}>
           {casts.map(({ credit_id, name, character, profile_path }) => {
             return (
-              <li key={credit_id}>
+              <li className={styles.item} key={credit_id}>
                 <img
                   className={styles.profile_picture}
                   src={getPosterPic(profile_path)}

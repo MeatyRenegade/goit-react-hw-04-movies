@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import styles from './MovieAdditionalInfo.module.css';
 
@@ -7,17 +7,35 @@ class MovieAdditionalInfo extends Component {
   state = {};
 
   render() {
-    const { url } = this.props;
+    const { url, location } = this.props;
 
     return (
       <div className={styles.container}>
         <h3>Additional Information</h3>
-        <ul>
-          <li>
-            <NavLink to={`${url}/cast`}>Cast</NavLink>
+        <ul className={styles.list}>
+          <li className={styles.item}>
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.NavLink__active}
+              to={{
+                pathname: `${url}/cast`,
+                state: { from: location },
+              }}
+            >
+              Cast
+            </NavLink>
           </li>
-          <li>
-            <NavLink to={`${url}/reviews`}>Reviews</NavLink>
+          <li className={styles.item}>
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.NavLink__active}
+              to={{
+                pathname: `${url}/reviews`,
+                state: { from: location },
+              }}
+            >
+              Reviews
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -25,4 +43,4 @@ class MovieAdditionalInfo extends Component {
   }
 }
 
-export default MovieAdditionalInfo;
+export default withRouter(MovieAdditionalInfo);
