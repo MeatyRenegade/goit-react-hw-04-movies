@@ -16,7 +16,7 @@ class MovieList extends Component {
         id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
           .isRequired,
         title: PropTypes.string.isRequired,
-        poster_path: PropTypes.string.isRequired,
+        poster_path: PropTypes.string,
       }),
     ),
   };

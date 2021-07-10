@@ -31,7 +31,7 @@ export async function searchMovies(query) {
     } = await axios.get(`/search/movie?query=${query}`);
     return data || [];
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 }
 

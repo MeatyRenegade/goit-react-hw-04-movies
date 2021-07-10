@@ -31,7 +31,8 @@ class MovieDetailsView extends Component {
 
     try {
       this.setState({ isLoading: true });
-      this.setState({ movies: await getMovieById(movieId) });
+      const movies = await getMovieById(movieId);
+      this.setState({ movies: movies });
     } catch (error) {
       console.log(error);
     } finally {

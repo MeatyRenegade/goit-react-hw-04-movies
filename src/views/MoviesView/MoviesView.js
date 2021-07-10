@@ -31,7 +31,8 @@ class MoviesView extends PureComponent {
 
     try {
       this.setState({ isLoading: true });
-      this.setState({ movies: await searchMovies(searchQuery) });
+      const movies = await searchMovies(searchQuery);
+      this.setState({ movies: movies });
     } catch (error) {
       console.log(error);
     } finally {

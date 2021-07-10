@@ -15,7 +15,8 @@ class HomeView extends Component {
   async componentDidMount() {
     try {
       this.setState({ isLoading: true });
-      this.setState({ movies: await getTrendMovies() });
+      const movies = await getTrendMovies();
+      this.setState({ movies: movies });
     } catch (error) {
       console.log(error);
     } finally {
