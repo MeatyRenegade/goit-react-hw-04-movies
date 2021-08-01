@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
 import { getTrendMovies } from '../../service/apiService';
 import MovieList from '../../components/MovieList';
 import Loader from '../../components/Loader';
-
 import styles from './HomeView.module.css';
 
 class HomeView extends Component {

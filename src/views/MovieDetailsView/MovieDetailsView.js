@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import { getMovieById } from '../../service/apiService';
 import MovieCard from '../../components/MovieCard';
 import MovieAdditionalInfo from '../../components/MovieAdditionalInfo';
@@ -9,7 +8,6 @@ import Cast from '../../components/Cast';
 import Reviews from '../../components/Reviews';
 import Loader from '../../components/Loader';
 import routes from '../../routes';
-
 import styles from './MovieDetailsView.module.css';
 
 class MovieDetailsView extends Component {
