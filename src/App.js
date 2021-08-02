@@ -18,17 +18,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className={styles.App}>
+      <>
         <Navigation />
-        <Suspense fallback={<Loader />}>
-          <Switch>
-            <Route exact path={routes.home} component={HomeView} />
-            <Route exact path={routes.movies} component={MoviesView} />
-            <Route path={routes.movieDetails} component={MovieDetailsView} />
-            <Redirect to={routes.home} />
-          </Switch>
-        </Suspense>
-      </div>
+        <div className={styles.Container}>
+          <Suspense fallback={<Loader />}>
+            <Switch>
+              <Route exact path={routes.home} component={HomeView} />
+              <Route exact path={routes.movies} component={MoviesView} />
+              <Route path={routes.movieDetails} component={MovieDetailsView} />
+              <Redirect to={routes.home} />
+            </Switch>
+          </Suspense>
+        </div>
+      </>
     );
   }
 }

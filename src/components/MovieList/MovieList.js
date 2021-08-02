@@ -35,8 +35,11 @@ class MovieList extends Component {
                   state: { from: location },
                 }}
               >
-                <img src={getPosterPic(movie.poster_path)} alt={movie.title} />
-                <p>{movie.title}</p>
+                <img
+                  src={getPosterPic(movie.poster_path)}
+                  alt={movie.title}
+                  title={movie.title}
+                />
               </Link>
             </li>
           ))}
