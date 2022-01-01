@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { getPosterPic, getMovieCastById } from '../../service/apiService';
 import Loader from '../Loader';
-
 import styles from './Cast.module.css';
 
 class Cast extends Component {
@@ -38,12 +36,8 @@ class Cast extends Component {
         <ul className={styles.list}>
           {casts.map(({ credit_id, name, character, profile_path }) => {
             return (
-              <li className={styles.item} key={credit_id}>
-                <img
-                  className={styles.profile_picture}
-                  src={getPosterPic(profile_path)}
-                  alt={name}
-                />
+              <li key={credit_id}>
+                <img src={getPosterPic(profile_path)} alt={name} />
                 <h5>{name}</h5>
                 <h5>Character: {character}</h5>
               </li>

@@ -3,19 +3,30 @@
 }
 
 .list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 5px;
 }
 
 .item {
-  margin: 0 10px 40px 0;
-  font-weight: 600;
-  width: 200px;
-  height: 300px;
+  transition: all 0.2s ease-in-out;
 }
 
 .item:hover {
-  color: palevioletred;
-  text-decoration: underline;
   box-shadow: 0 0 10px #000;
+  transform: scale(1.15);
+}
+
+.item::after {
+  content: '';
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.2s ease-in-out;
+}
+
+.item:hover::after {
+  opacity: 1;
 }

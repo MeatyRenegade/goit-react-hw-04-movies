@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import { getPosterPic } from '../../service/apiService';
 import routes from '../../routes';
-
 import styles from './MovieList.module.css';
 
 class MovieList extends Component {
