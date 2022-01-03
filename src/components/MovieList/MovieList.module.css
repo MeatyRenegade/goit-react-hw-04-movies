@@ -1,10 +1,10 @@
 .section {
-  padding: 20px;
+  padding: 10px;
 }
 
 .list {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   grid-gap: 5px;
 }
 
@@ -14,7 +14,7 @@
 
 .item:hover {
   box-shadow: 0 0 10px #000;
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
 .item::after {
