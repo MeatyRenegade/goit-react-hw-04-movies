@@ -36,7 +36,7 @@ class Searchbar extends PureComponent {
             type="text"
             autoComplete="off"
             autoFocus
-            placeholder="Search for a movie....."
+            placeholder="Search for a movie..."
             value={query}
             onChange={this.handleChange}
           />
