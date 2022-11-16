@@ -15,10 +15,10 @@ export function getPosterPic(poster, template = 'avatar.jpg') {
 
 export async function getTrendMovies() {
   try {
-    const {
-      data: { results: data },
-    } = await axios.get('/trending/movie/day');
-    return data;
+    const { data } = await axios.get('/trending/movie/day');
+    const { results } = data;
+
+    return results;
   } catch (error) {
     console.log(error);
   }
@@ -26,10 +26,10 @@ export async function getTrendMovies() {
 
 export async function searchMovies(query) {
   try {
-    const {
-      data: { results: data },
-    } = await axios.get(`/search/movie?query=${query}`);
-    return data || [];
+    const { data } = await axios.get(`/search/movie?query=${query}`);
+    const { results } = data;
+
+    return results || [];
   } catch (error) {
     console.log(error);
   }
@@ -38,6 +38,7 @@ export async function searchMovies(query) {
 export async function getMovieById(movieId) {
   try {
     const { data } = await axios.get(`/movie/${movieId}`);
+
     return data;
   } catch (error) {
     console.log(error);
@@ -46,10 +47,10 @@ export async function getMovieById(movieId) {
 
 export async function getMovieCastById(movieId) {
   try {
-    const {
-      data: { cast: data },
-    } = await axios.get(`/movie/${movieId}/credits`);
-    return data || [];
+    const { data } = await axios.get(`/movie/${movieId}/credits`);
+    const { cast } = data;
+
+    return cast || [];
   } catch (error) {
     console.log(error);
   }
@@ -57,10 +58,10 @@ export async function getMovieCastById(movieId) {
 
 export async function getMovieReviewsById(movieId) {
   try {
-    const {
-      data: { results: data },
-    } = await axios.get(`/movie/${movieId}/reviews`);
-    return data || [];
+    const { data } = await axios.get(`/movie/${movieId}/reviews`);
+    const { results } = data;
+
+    return results || [];
   } catch (error) {
     console.log(error);
   }
